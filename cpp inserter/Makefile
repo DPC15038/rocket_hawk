@@ -6,8 +6,8 @@ all: myproject
 myproject:$(OBJECTS)
 	$(CXX) $(CXXFLAGS) -o myproject $(OBJECTS)
 
-main.o: daily2.cpp myheader.hpp
-	$(CXX) $(CXXFLAGS) -c daily2.cpp -o main.o
+main.o: html_inserter.cpp html_inserter.hpp
+	$(CXX) $(CXXFLAGS) -c html_inserter.cpp -o main.o
 
 clean:
 	rm myproject $(OBJECTS)
