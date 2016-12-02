@@ -24,9 +24,9 @@ int main(int argc, char **argv){
       long p = bmp180_pressure(bmp);
       float alt = bmp180_altitude(bmp);
       fprintf(altimeter_full_data, "t = %f, p = %lu, a= %f\n", t, p, alt);
-      fprintf(altimeter_temperature, "[\'%d\', \'%f\'],", i, t);
-      fprintf(altimeter_pressure, "[\'%d\', \'%ld\'],", i, p);
-      fprintf(altimeter_altitude, "[\'%d\', \'%f\'],", i, alt);
+      fprintf(altimeter_temperature, "[\'%d\', %f],", i, t);
+      fprintf(altimeter_pressure, "[\'%d\', %ld],", i, p);
+      fprintf(altimeter_altitude, "[\'%d\', %f],", i, alt);
       fprintf(stdout, "t = %f, p = %lu, a= %f\n", t, p, alt);
       usleep(2*1000*250);
     }
