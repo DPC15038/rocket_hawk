@@ -16,12 +16,11 @@ lsm303 = Adafruit_LSM303.LSM303()
 #lsm303 = Adafruit_LSM303.LSM303(busum=2)
 
 # print('Printing accelerometer & magnetometer X, Y, Z axis values, press Ctrl-C to quit...')
-fo = open("/home/pi/rocket_hawk/logs/accelerometer/accelerometer.txt", "a")
+fo = open("/home/pi/rocket_hawk/logs/accelerometer_logs/accelerometer.txt", "a")
 if len(sys.argv) > 1:
 	seconds = [int(i) for i in (sys.argv[1:])][0]
 else:
 	seconds = 5
-print seconds 
 seconds = seconds *4
 for x in range(0, seconds):
     # Read the X, Y, Z axis acceleration values and print them.
