@@ -30,7 +30,7 @@ for x in range(0, seconds):
     mag_x, mag_z, mag_y = mag
    # print('Accel X={0}, Accel Y={1}, Accel Z={2}'.format(
     #      accel_x, accel_y, accel_z))
-    fo.write('Accel X={0}, Accel Y={1}, Accel Z={2}'.format(
+    fo.write('Accel X={0}, Accel Y={1}, Accel Z={2}\n'.format(
           accel_x, accel_y, accel_z))
 
     # Wait quarter of a second and repeat.
