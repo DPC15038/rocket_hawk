@@ -14,7 +14,7 @@ int main(int argc, char **argv){
         void *bmp = bmp180_init(address, i2c_device);
 
   // For taking command line arguments (cycle-seconds)
-  int seconds = (argc > 1) ? atoi(argv[1])*4 : 40;
+  int seconds = (argc > 1) ? atoi(argv[1])*10 : 100;
   bmp180_eprom_t eprom;
   bmp180_dump_eprom(bmp, &eprom);
 
@@ -32,7 +32,7 @@ int main(int argc, char **argv){
      // fprintf(altimeter_pressure, "[\'%d\', %ld],", i, p);
      // fprintf(altimeter_altitude, "[\'%d\', %f],", i, alt);
       // fprintf(stdout, "t = %f, p = %lu, a= %f\n", t, p, alt);
-      usleep(25*10*1000);
+      usleep(100*1000);
     }
 
     bmp180_close(bmp);

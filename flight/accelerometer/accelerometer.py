@@ -21,7 +21,7 @@ if len(sys.argv) > 1:
 	seconds = [int(i) for i in (sys.argv[1:])][0]
 else:
 	seconds = 5
-seconds = seconds *4
+seconds = seconds * 10
 for x in range(0, seconds):
     # Read the X, Y, Z axis acceleration values and print them.
     accel, mag = lsm303.read()
@@ -34,7 +34,7 @@ for x in range(0, seconds):
           accel_x, accel_y, accel_z))
 
     # Wait quarter of a second and repeat.
-    time.sleep(0.25)
+    time.sleep(0.1)
 
 fo.close()
 
