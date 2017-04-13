@@ -18,7 +18,7 @@
           *T*
         ];
         var myData2 = [
-          ['T+', 'Pressure(atms)'],
+          ['T+', 'Pressure(Pascals)'],
           *P*
         ];
         var myData3 = [
@@ -29,17 +29,25 @@
         var data2 = google.visualization.arrayToDataTable(myData2);
         var data3 = google.visualization.arrayToDataTable(myData3);
 
-        var options = {
+        var options1 = {
           title: 'Temperature',
+          legend: { position: 'bottom' }
+        };
+        var options2 = {
+          title: 'Pascals',
+          legend: { position: 'bottom' }
+        };
+        var options3 = {
+          title: 'Altitude',
           legend: { position: 'bottom' }
         };
 
         var chart1 = new google.visualization.LineChart(document.getElementById('temp_chart'));
         var chart2 = new google.visualization.LineChart(document.getElementById('pressure_chart'));
         var chart3 = new google.visualization.LineChart(document.getElementById('altimeter_chart'));
-        chart1.draw(data1, options);
-        chart2.draw(data2, options);
-        chart3.draw(data3, options);
+        chart1.draw(data1, options1);
+        chart2.draw(data2, options2);
+        chart3.draw(data3, options3);
 
       }
     </script>

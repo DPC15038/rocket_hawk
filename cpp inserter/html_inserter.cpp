@@ -10,29 +10,29 @@ vector<char> getFileContents(ifstream& inputFile) {
 }
 
 int main() {
-  ifstream alt_temperature("../altimeter_data/altimeter_temperature.txt");
-  ifstream alt_pressure("../altimeter_data/altimeter_pressure.txt");
-  ifstream alt_altitude("../altimeter_data/altimeter_altitude.txt");
+  ifstream alt_temperature("altimeter_data/altimeter_temperature.txt");
+  ifstream alt_pressure("altimeter_data/altimeter_pressure.txt");
+  ifstream alt_altitude("altimeter_data/altimeter_altitude.txt");
   vector<char> temperatureTextToInsert = getFileContents(alt_temperature);
   vector<char> pressureTextToInsert = getFileContents(alt_pressure);
   vector<char> altitudeTextToInsert = getFileContents(alt_altitude);
-  HTML_File htmlTemperature("../temp_chart.html");
+  HTML_File htmlTemperature("temp_chart.html");
   if (htmlTemperature.insertTextAtLocation(htmlTemperature.getStartingLocationForData('T'), temperatureTextToInsert) == 1) {
-    if (htmlTemperature.commitChanges("../temp_chart.html") != 1){
+    if (htmlTemperature.commitChanges("temp_chart.html") != 1){
       return -1;
     };
 
   }
-  HTML_File htmlPressure("../temp_chart.html");
+  HTML_File htmlPressure("temp_chart.html");
   if (htmlPressure.insertTextAtLocation(htmlPressure.getStartingLocationForData('P'), pressureTextToInsert) == 1) {
-    if (htmlPressure.commitChanges("../temp_chart.html") != 1){
+    if (htmlPressure.commitChanges("temp_chart.html") != 1){
       return -1;
     };
 
   }
-  HTML_File htmlAltitude("../temp_chart.html");
+  HTML_File htmlAltitude("temp_chart.html");
   if (htmlAltitude.insertTextAtLocation(htmlAltitude.getStartingLocationForData('A'), altitudeTextToInsert) == 1) {
-    if (htmlAltitude.commitChanges("../temp_chart.html") != 1){
+    if (htmlAltitude.commitChanges("temp_chart.html") != 1){
       return -1;
     };
   }
