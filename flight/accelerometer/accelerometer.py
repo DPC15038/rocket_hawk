@@ -18,12 +18,10 @@ else:  # else, default to 10 second intervals
 	seconds = 10*N
 
 duration = ((1/float(N)) - .0034) # Off set slightly to account for i2c bus delay
-
 for x in range(0, seconds):
     accel, mag = lsm303.read()
     accel_x, accel_y, accel_z = accel
-    mag_x, mag_z, mag_y = mag
-    fo.write('Accel X={0}, Accel Y={1}, Accel Z={2}\n'.format(
+    fo.write('time = {0}, Accel X={1}, Y={2}, Z={3}\n'.format( int(time.time()),
     accel_x, accel_y, accel_z))
     time.sleep(duration)
 fo.close()

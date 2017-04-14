@@ -13,7 +13,8 @@ picamera() {
 }
 
 NUMBEROFCYCLES=5
-pids=""
+al_pids=""
+ac_pids=""
 
 echo Altimeter.txt:
 stat -c %s /home/pi/rocket_hawk/logs/altimeters_logs/altimeter.txt
@@ -24,14 +25,12 @@ cd /home/pi/rocket_hawk/flight/altimeter/
 
 for x in $(seq  $NUMBEROFCYCLES);
 do
-	echo pids
-	/home/pi/rocket_hawk/flight/altimeter/bmp180 10 &
-	pids="$!"
-	wait $pids
-
+  /home/pi/rocket_hawk/flight/altimeter/bmp180 10 &
+  python /home/pi/rocket_hawk/flight/accelerometer/accelerometer.py 10 &
+  wait
 done
 
-#wait $pids
+echo
 
 
 
