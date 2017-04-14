@@ -12,7 +12,7 @@ picamera() {
   rm pivideo.h264
 }
 
-NUMBEROFCYCLES=5
+NUMBEROFCYCLES=2
 al_pids=""
 ac_pids=""
 
@@ -23,13 +23,14 @@ stat -c %s /home/pi/rocket_hawk/logs/accelerometer_logs/accelerometer.txt
 cd /home/pi/rocket_hawk/flight/altimeter/
 
 
-for x in $(seq  $NUMBEROFCYCLES);
-do
-  /home/pi/rocket_hawk/flight/altimeter/bmp180 10 &
-  python /home/pi/rocket_hawk/flight/accelerometer/accelerometer.py 10 &
+# for x in $(seq $NUMBEROFCYCLES);
+# do
+  /home/pi/rocket_hawk/flight/altimeter/bmp180 10 2 &
+  python /home/pi/rocket_hawk/flight/accelerometer/accelerometer.py 10 2 &
   wait
-done
+# done
 
+echo
 echo
 
 
