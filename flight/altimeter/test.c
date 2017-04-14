@@ -1,3 +1,7 @@
+// Author: Alexander Ruedlinger
+// https://github.com/lexruee/bmp180
+// Modified for UML Rocket Club: David Connolly and Jacob Hempel
+
 #include "bmp180.h"
 #include <unistd.h>
 #include <stdlib.h>

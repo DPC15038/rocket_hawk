@@ -1,7 +1,6 @@
-# Simple demo of of the LSM303 accelerometer & magnetometer library.
-# Will print the accelerometer & magnetometer X, Y, Z axis values every half
-# second.
 # Author: Tony DiCola
+# https://github.com/adafruit/Adafruit_Python_LSM303/blob/master/examples/simpletest.py
+# Modified for UML Rocket Club: David Connolly
 # License: Public Domain
 import time
 import sys
@@ -15,13 +14,12 @@ lsm303 = Adafruit_LSM303.LSM303()
 # Alternatively you can specify the I2C bus with a bus parameter:
 #lsm303 = Adafruit_LSM303.LSM303(busum=2)
 
-# print('Printing accelerometer & magnetometer X, Y, Z axis values, press Ctrl-C to quit...')
 fo = open("/home/pi/rocket_hawk/logs/accelerometer_logs/accelerometer.txt", "a")
 if len(sys.argv) > 1:
-	seconds = [int(i) for i in (sys.argv[1:])][0]
+	seconds = [int(i) for i in (sys.argv[1:])][0]* 10
 else:
-	seconds = 5
-seconds = seconds * 10
+	seconds = 10
+
 for x in range(0, seconds):
     # Read the X, Y, Z axis acceleration values and print them.
     accel, mag = lsm303.read()
@@ -37,4 +35,3 @@ for x in range(0, seconds):
     time.sleep(0.1)
 
 fo.close()
-
